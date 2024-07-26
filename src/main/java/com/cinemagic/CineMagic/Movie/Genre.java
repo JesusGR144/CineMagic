@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.Movie;
+package com.cinemagic.cinemagic.movie;
 
 public enum Genre {
     ACTION,

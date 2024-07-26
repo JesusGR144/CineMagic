@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.Raiting;
+package com.cinemagic.cinemagic.raiting;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

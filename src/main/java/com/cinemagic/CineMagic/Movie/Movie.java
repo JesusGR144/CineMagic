@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.Movie;
+package com.cinemagic.cinemagic.movie;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

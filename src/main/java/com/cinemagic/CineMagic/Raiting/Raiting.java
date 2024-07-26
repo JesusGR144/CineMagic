@@ -1,7 +1,7 @@
-package com.cinemagic.CineMagic.Raiting;
+package com.cinemagic.cinemagic.raiting;
 
-import com.cinemagic.CineMagic.Movie.Movie;
-import com.cinemagic.CineMagic.User.User;
+import com.cinemagic.cinemagic.movie.Movie;
+import com.cinemagic.cinemagic.user.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

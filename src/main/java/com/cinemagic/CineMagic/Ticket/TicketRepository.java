@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.Ticket;
+package com.cinemagic.cinemagic.ticket;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

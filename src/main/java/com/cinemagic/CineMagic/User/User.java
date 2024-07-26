@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.User;
+package com.cinemagic.cinemagic.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

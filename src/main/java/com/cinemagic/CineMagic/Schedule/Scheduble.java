@@ -1,6 +1,6 @@
-package com.cinemagic.CineMagic.Schedule;
+package com.cinemagic.cinemagic.schedule;
 
-import com.cinemagic.CineMagic.Movie.Movie;
+import com.cinemagic.cinemagic.movie.Movie;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

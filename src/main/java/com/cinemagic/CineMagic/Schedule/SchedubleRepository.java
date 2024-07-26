@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.Schedule;
+package com.cinemagic.cinemagic.schedule;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

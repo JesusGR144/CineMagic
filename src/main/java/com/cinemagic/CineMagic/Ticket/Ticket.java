@@ -1,7 +1,7 @@
-package com.cinemagic.CineMagic.Ticket;
+package com.cinemagic.cinemagic.ticket;
 
-import com.cinemagic.CineMagic.Schedule.Scheduble;
-import com.cinemagic.CineMagic.User.User;
+import com.cinemagic.cinemagic.schedule.Scheduble;
+import com.cinemagic.cinemagic.user.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

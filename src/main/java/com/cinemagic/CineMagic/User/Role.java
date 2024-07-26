@@ -1,4 +1,4 @@
-package com.cinemagic.CineMagic.User;
+package com.cinemagic.cinemagic.user;
 
 public enum Role {
     VIEWER,
