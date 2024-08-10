@@ -15,25 +15,25 @@ public class SchedubleController {
     private SchedubleService schedubleService;
 
     @GetMapping
-    public List<Scheduble> getAllSchedubles() {
+    public List<Schedule> getAllSchedubles() {
         return schedubleService.getAllSchedubles();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Scheduble> getSchedubleById(@PathVariable Long id) {
-        Optional<Scheduble> scheduble = schedubleService.getSchedubleById(id);
+    public ResponseEntity<Schedule> getSchedubleById(@PathVariable Long id) {
+        Optional<Schedule> scheduble = schedubleService.getSchedubleById(id);
         return scheduble.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Scheduble createScheduble(@RequestBody Scheduble scheduble) {
+    public Schedule createScheduble(@RequestBody Schedule scheduble) {
         return schedubleService.createScheduble(scheduble);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Scheduble> updateScheduble(@PathVariable Long id, @RequestBody Scheduble schedubleDetails) {
+    public ResponseEntity<Schedule> updateScheduble(@PathVariable Long id, @RequestBody Schedule schedubleDetails) {
         try {
-            Scheduble updatedScheduble = schedubleService.updateScheduble(id, schedubleDetails);
+            Schedule updatedScheduble = schedubleService.updateScheduble(id, schedubleDetails);
             return ResponseEntity.ok(updatedScheduble);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();

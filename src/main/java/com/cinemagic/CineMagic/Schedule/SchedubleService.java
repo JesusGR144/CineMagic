@@ -3,6 +3,8 @@ package com.cinemagic.cinemagic.schedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cinemagic.cinemagic.exceptions.ApiRequestException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,25 +14,25 @@ public class SchedubleService {
     @Autowired
     private SchedubleRepository schedubleRepository;
 
-    public List<Scheduble> getAllSchedubles() {
+    public List<Schedule> getAllSchedubles() {
         return schedubleRepository.findAll();
     }
 
-    public Optional<Scheduble> getSchedubleById(Long id) {
+    public Optional<Schedule> getSchedubleById(Long id) {
         return schedubleRepository.findById(id);
     }
 
-    public Scheduble createScheduble(Scheduble scheduble) {
+    public Schedule createScheduble(Schedule scheduble) {
         return schedubleRepository.save(scheduble);
     }
 
-    public Scheduble updateScheduble(Long id, Scheduble schedubleDetails) {
+    public Schedule updateScheduble(Long id, Schedule schedubleDetails) {
         return schedubleRepository.findById(id).map(scheduble -> {
             scheduble.setMovie(schedubleDetails.getMovie());
             scheduble.setDateTime(schedubleDetails.getDateTime());
             scheduble.setCinemaRoom(schedubleDetails.getCinemaRoom());
             return schedubleRepository.save(scheduble);
-        }).orElseThrow(() -> new RuntimeException("Scheduble not found with id " + id));
+        }).orElseThrow(() -> new ApiRequestException("Scheduble not found with id " + id));
     }
 
     public void deleteScheduble(Long id) {

@@ -6,13 +6,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
 @Entity
 @Data
-public class Scheduble {
+public class Schedule {
     @Id
     @SequenceGenerator(
         name = "scheduble_sequence",
@@ -25,6 +26,7 @@ public class Scheduble {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
     private String dateTime;
