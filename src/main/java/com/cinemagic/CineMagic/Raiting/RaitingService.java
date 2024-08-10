@@ -3,6 +3,8 @@ package com.cinemagic.cinemagic.raiting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cinemagic.cinemagic.exceptions.ApiRequestException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +33,7 @@ public class RaitingService {
             raiting.setScore(raitingDetails.getScore());
             raiting.setComment(raitingDetails.getComment());
             return raitingRepository.save(raiting);
-        }).orElseThrow(() -> new RuntimeException("Raiting not found with id " + id));
+        }).orElseThrow(() -> new ApiRequestException("Raiting not found with id " + id));
     }
 
     public void deleteRaiting(Long id) {

@@ -1,14 +1,14 @@
 package com.cinemagic.cinemagic.raiting;
 
 import com.cinemagic.cinemagic.movie.Movie;
-import com.cinemagic.cinemagic.user.User;
+import com.cinemagic.cinemagic.user.UserEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,22 +20,17 @@ import lombok.NoArgsConstructor;
 
 public class Raiting {
     @Id
-    @SequenceGenerator(
-        name = "raiting_sequence",
-        sequenceName = "raiting_sequence",
-        allocationSize = 1
-    )
-    @GeneratedValue(
-        strategy = GenerationType.IDENTITY,
-        generator = "raiting_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    private User user;
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
     @ManyToOne
+    @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
-    private int score;
+    private float score;
     private String comment;
 }
