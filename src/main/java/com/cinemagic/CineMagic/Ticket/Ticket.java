@@ -1,12 +1,13 @@
 package com.cinemagic.cinemagic.ticket;
 
-import com.cinemagic.cinemagic.schedule.Scheduble;
-import com.cinemagic.cinemagic.user.User;
+import com.cinemagic.cinemagic.schedule.Schedule;
+import com.cinemagic.cinemagic.user.UserEntity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
@@ -19,22 +20,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Ticket {
     @Id
-    @SequenceGenerator(
-        name = "ticket_sequence",
-        sequenceName = "ticket_sequence",
-        allocationSize = 1
-    )
-    @GeneratedValue(
-        strategy = GenerationType.IDENTITY,
-        generator = "ticket_sequence")
+    @SequenceGenerator(name = "ticket_sequence", sequenceName = "ticket_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "ticket_sequence")
     private Long id;
 
     @ManyToOne
-    private User user;
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     @ManyToOne
-    private Scheduble scheduble;
+    @JoinColumn(name = "scheduble_id")
+    private Schedule scheduble;
 
     private String seat;
     private String state;
+
+    private boolean isActive;
 }

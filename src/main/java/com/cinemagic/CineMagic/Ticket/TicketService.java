@@ -3,6 +3,8 @@ package com.cinemagic.cinemagic.ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cinemagic.cinemagic.exceptions.ApiRequestException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +33,7 @@ public class TicketService {
             ticket.setSeat(ticketDetails.getSeat());
             ticket.setState(ticketDetails.getState());
             return ticketRepository.save(ticket);
-        }).orElseThrow(() -> new RuntimeException("Ticket not found with id " + id));
+        }).orElseThrow(() -> new ApiRequestException("Ticket not found with id " + id));
     }
 
     public void deleteTicket(Long id) {
