@@ -39,9 +39,13 @@
 
 package com.cinemagic.cinemagic.user;
 
+import java.util.Set;
+import java.util.HashSet;
 import org.springframework.stereotype.Service;
 
 import com.cinemagic.cinemagic.exceptions.ApiRequestException;
+import com.cinemagic.cinemagic.security.RoleEntity;
+import com.cinemagic.cinemagic.security.RoleEnum;
 
 import java.util.List;
 
@@ -64,6 +68,14 @@ public class UserService {
     }
 
     public UserEntity createUser(UserDTO userDTO) {
+        RoleEnum roleEnum = RoleEnum.valueOf(userDTO.getRole());
+        
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setRole(roleEnum);
+        
+        Set<RoleEntity> roles = new HashSet<>();
+        roles.add(roleEntity);
+        
         UserEntity user = UserEntity.builder()
             .name(userDTO.getName())
             .password(userDTO.getPassword())
@@ -71,10 +83,12 @@ public class UserService {
             .accountNotExpired(userDTO.isAccountNotExpired())
             .accountNotLocked(userDTO.isAccountNotLocked())
             .isActive(true)
+            .roles(roles) 
             .build();
-
+    
         return userRepository.save(user);
     }
+    
 
     public void deleteUser(Long id) {
         if (!userRepository.existsById(id)) {

@@ -22,4 +22,7 @@ public class UserDTO {
     private boolean accountNotExpired;
 
     private boolean accountNotLocked;
+
+    @NotBlank
+    private String role;
 }

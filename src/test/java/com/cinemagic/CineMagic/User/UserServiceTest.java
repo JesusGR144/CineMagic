@@ -120,7 +120,7 @@ public class UserServiceTest {
     @Test
     void addUser() {
         // Dado
-        UserDTO userDTO = new UserDTO("Sample User 1", "1234", "samplemail1@mai.com", true, true);
+        UserDTO userDTO = new UserDTO("Sample User 1", "1234", "samplemail1@mai.com", true, true, "ADMIN");
 
         UserEntity userEntity = UserEntity.builder()
                 .name(userDTO.getName())
@@ -128,7 +128,7 @@ public class UserServiceTest {
                 .email(userDTO.getEmail())
                 .accountNotExpired(userDTO.isAccountNotExpired())
                 .accountNotLocked(userDTO.isAccountNotLocked())
-                .isActive(true) // Por defecto, lo hacemos activo al crear
+                .isActive(true)
                 .build();
 
         when(userRepository.save(userEntity)).thenReturn(userEntity);
