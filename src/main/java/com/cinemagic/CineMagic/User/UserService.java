@@ -70,7 +70,7 @@ public class UserService {
             .email(userDTO.getEmail())
             .accountNotExpired(userDTO.isAccountNotExpired())
             .accountNotLocked(userDTO.isAccountNotLocked())
-            .isActive(true) // Por defecto, lo hacemos activo al crear
+            .isActive(true)
             .build();
 
         return userRepository.save(user);
